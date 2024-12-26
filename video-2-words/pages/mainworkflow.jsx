@@ -74,6 +74,11 @@ const MainWorkflow = () => {
   
 
   const handleGetTranscript = async() =>{
+    if(uploadProgress!=100)
+    {
+      alert("Upload Video");
+      return;
+    }
     try {
         // Sending POST request to the backend
         const response = await fetch("http://localhost:5000/process", {
@@ -229,8 +234,8 @@ const MainWorkflow = () => {
 
       </select>
     </label>
-    <button
-      className={`${styles.actionbutton} ${styles.gettranscript}`}
+   <button
+      className={`${styles.actionbutton} ${uploadProgress!==100 ?styles.buttoninactive:""} ${styles.gettranscript}`}
       onClick={handleGetTranscript}
     >
       Get Transcript
@@ -298,7 +303,19 @@ const MainWorkflow = () => {
           <button className={`${styles.actionbutton} ${styles.downloadpdf}`}>Download PDF</button>
           <button className={`${styles.actionbutton} ${styles.exportsrt}`}>Export as Subtitle (.srt)</button>
         </section>
+        
       )}
+
+        {/* Step 4: Next Actions */}
+        {transcriptionReady && (
+        <section className={styles.actionsstep}>
+          <h2>Step 5: Re-Upload</h2>
+          <button className={`${styles.actionbutton} ${styles.playaudio}`}>Re-Upload</button>
+          <button className={`${styles.actionbutton} ${styles.downloadpdf}`}>Re-Transcript</button>
+        </section>
+        
+      )}
+
     </div>
   );
 };

@@ -1,0 +1,36 @@
+.footer {
+    background-color: #03285c;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    bottom: 0;
+    width: 100%;
+  
+    border-radius: 10px;
+  }
+  
+  .footerContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .footerText {
+    font-size: 1rem;
+    margin: 0;
+  }
+  
+  .heart {
+    color: red;
+  }
+  
+  .footerLink {
+    color: #1e90ff;
+    text-decoration: none;
+  }
+  
+  .footerLink:hover {
+    text-decoration: underline;
+  }
+  

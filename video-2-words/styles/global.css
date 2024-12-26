@@ -1,32 +1,11 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family:
-    Inter,
-    -apple-system,
-    BlinkMacSystemFont,
-    Segoe UI,
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    Fira Sans,
-    Droid Sans,
-    Helvetica Neue,
-    sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #F1F5F9; /* Light Gray */
+  color: #4B5563; /* Dark Gray */
 }
