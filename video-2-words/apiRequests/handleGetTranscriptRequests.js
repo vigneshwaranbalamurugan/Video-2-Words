@@ -1,3 +1,4 @@
+import { API_Get_Transcript } from "./apiUrl";
 
 const handleGetTranscriptRequest = async(uploadProgress,s3Key,selectedLanguage,setOriginalTranscript,setTranslatedTranscript,setTranscriptionReady) =>{
     if(uploadProgress!=100)
@@ -7,7 +8,7 @@ const handleGetTranscriptRequest = async(uploadProgress,s3Key,selectedLanguage,s
     }
     try {
         // Sending POST request to the backend
-        const response = await fetch("http://localhost:5000/process", {
+        const response = await fetch(`${API_Get_Transcript}`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
