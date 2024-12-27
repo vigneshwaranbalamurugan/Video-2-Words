@@ -1,22 +1,38 @@
 
+import React from "react";
+import { useState } from "react";
 import Head from "next/head";
 import Homepage from "../components/home";
 import MainWorkflow from "../components/mainworkflow";
 import Footer from "../components/footer";
+import Launcher from "../components/launcher";
 
 export default function Home() {
+  const [progress, setProgress] = useState(0);
+
   return (
-  <>
-     <Head>
-        <title>Video2Words</title>
-        <meta name="description" content="Welcome to my awesome website built with Next.js" />
-        <link rel="icon" type="image/jpeg" sizes="32x32" href="/video2words.jpeg" />
-        <link rel="icon" type="image/jpeg" sizes="16x16" href="/video2words.jpeg" />
-        {/* <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" /> */}
-      </Head>
-  <Homepage/>
-  <MainWorkflow/>
-  <Footer/>
-  </>
+    <>
+       <Head>
+          <title>Video2Words</title>
+          <meta name="description" content="Welcome to my awesome website built with Next.js" />
+          <link rel="icon" type="image/jpeg" sizes="32x32" href="/video2words.jpeg" />
+          <link rel="icon" type="image/jpeg" sizes="16x16" href="/video2words.jpeg" />
+          <link
+          href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Exo:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
+        </Head>
+    {progress<100 && (
+      <Launcher progress={progress} setProgress={setProgress}/>
+    )}
+  { progress==100 && (
+      <>
+   
+    <Homepage/>
+    <MainWorkflow/>
+    <Footer/>
+    </>
+  )}
+</>
   );
 }

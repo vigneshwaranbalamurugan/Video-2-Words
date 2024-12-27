@@ -1,0 +1,286 @@
+/* Full-screen launcher */
+.launcher {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 97.5vh;
+    background: radial-gradient(circle at center, #1E3A8A, #0F172A); /* Futuristic radial gradient */
+    color: white;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+  }
+  
+ .launcherLogo{
+    width: 150px;
+    height:auto;
+    background: transparent;
+    background-color: transparent;
+ } 
+  /* Animated glowing particles */
+  .particle {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: float 6s infinite ease-in-out, drift 10s infinite ease-in-out;
+    z-index: 0;
+  }
+  
+
+.particle:nth-child(1) {
+    top: 20%;
+    left: 15%;
+    animation-delay: 0s;
+  }
+  
+  .particle:nth-child(2) {
+    top: 50%;
+    left: 75%;
+    animation-delay: 2s;
+  }
+  
+  .particle:nth-child(3) {
+    top: 80%;
+    left: 90%;
+    animation-delay: 4s;
+  }
+  
+  .particle:nth-child(4) {
+    top: 80%;
+    left: 10%;
+    animation-delay: 4s;
+  }
+  
+  .particle:nth-child(5) {
+    top: 20%;
+    left: 90%;
+    animation-delay: 4s;
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+  
+  @keyframes drift {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(10px);
+    }
+  }
+  
+  /* Content container */
+  .content {
+    z-index: 1;
+    animation: fadeIn 1.5s ease-in-out;
+    text-align: center;
+  }
+  
+  /* Logo styling with futuristic glow */
+  .logo {
+    font-size: 4.5rem;
+    color: #FFFFFF;
+    text-shadow: 0 0 10px #3B82F6, 0 0 20px #3B82F6, 0 0 30px #3B82F6;
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      text-shadow: 0 0 10px #3B82F6, 0 0 20px #3B82F6, 0 0 30px #3B82F6;
+    }
+    50% {
+      text-shadow: 0 0 15px #60A5FA, 0 0 25px #60A5FA, 0 0 40px #60A5FA;
+    }
+  }
+  
+  /* Website name */
+  .websiteName {
+    font-family: "Orbitron", "Exo", sans-serif !important; /* Stylish font */
+    font-size: 3rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #3B82F6, #60A5FA);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem; /* Adjusts spacing between words */
+    letter-spacing: 2.5px; /* Futuristic spacing */
+    animation: fadeIn 2s ease-in-out, float 4s ease-in-out infinite; /* Fading and floating effect */
+    text-shadow: 0px 0px 8px rgba(59, 130, 246, 0.5);
+    margin-top: -10px;
+  }
+  
+  /* Add a subtle hover scale effect */
+  .websiteName:hover {
+    transform: scale(1.05); /* Slight zoom */
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .to {
+    font-family: "Orbitron", sans-serif !important; /* Match with the overall font */
+    
+    font-size: 4.8rem; /* Slightly larger */
+    font-weight: 900;
+    text-transform: none; /* Keep as is for contrast */
+    color: #ffffff;
+    text-shadow: 0px 0px 12px #60A5FA, 0px 0px 25px #3B82F6; /* Neon glow */
+    padding: 0 12px;
+    background: linear-gradient(90deg, #FF5722, #FF9800); /* Gradient for the "2" */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: pulse 1.5s infinite ease-in-out;
+    transform: rotate(10deg); /* Rotate by -10 degrees */
+    display: inline-block; 
+    
+  }
+  
+  /* Add a hover effect for "2" to enhance the modern look */
+  .to:hover {
+    text-shadow: 0px 0px 20px #FF5722, 0px 0px 30px #FF9800;
+    transition: text-shadow 0.3s ease-in-out;
+  }
+  
+  /* Fade-in animation for the whole title */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Floating animation for the entire title */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  /* Pulse animation for the "2" */
+  @keyframes pulse {
+    0%, 100% {
+      text-shadow: 0px 0px 12px #FF5722, 0px 0px 25px #FF9800;
+    }
+    50% {
+      text-shadow: 0px 0px 20px #FF5722, 0px 0px 35px #FF9800;
+    }
+  }
+  
+  
+  /* Tagline animation */
+  .tagline {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: #E0F2FE;
+    opacity: 0.9;
+    margin-bottom: 30px;
+  }
+  
+  .tagline span {
+    display: inline-block;
+    animation: fadeWord 1s ease-in-out forwards;
+    opacity: 0;
+  }
+  
+  .tagline span:nth-child(1) {
+    animation-delay: 0.5s;
+  }
+  .tagline span:nth-child(2) {
+    animation-delay: 1s;
+  }
+  .tagline span:nth-child(3) {
+    animation-delay: 1.5s;
+  }
+  .tagline span:nth-child(4) {
+    animation-delay: 2s;
+  }
+  
+  @keyframes fadeWord {
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Progress bar with neon effect */
+  .progressContainer {
+    width: 70%;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    margin: 20px auto;
+    overflow: hidden;
+  }
+  
+  .progressBar {
+    height: 100%;
+    background: linear-gradient(90deg, #60A5FA, #3B82F6);
+    box-shadow: 0 0 10px #3B82F6, 0 0 20px #60A5FA;
+    border-radius: 10px;
+    animation: loading 7s infinite ease-in-out;
+  }
+  
+  @keyframes loading {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+  
+  .progressText {
+    font-size: 1rem;
+    color: #93C5FD;
+    margin-top: 10px;
+  }
+  
+  /* Glassmorphism-inspired Skip Button */
+  .skipButton {
+    margin-top: 30px;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: white;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .skipButton:hover {
+    background: linear-gradient(90deg, #3B82F6, #60A5FA);
+    box-shadow: 0 0 15px #3B82F6, 0 0 25px #60A5FA;
+    transform: scale(1.1);
+  }
+  
+  /* Fade-in animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
