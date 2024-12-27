@@ -1,12 +1,12 @@
 import React from "react";
-import styles from "../styles/Footer.module.css"; // Make sure to import CSS module
+import styles from "../styles/Footer.module.css"; 
 
 const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.footerContent}>
         <p className={styles.footerText}>
-          Developed with <span className={styles.heart}>❤️</span> by{" "}
+          Designed & Developed with <span className={styles.heart}>❤️</span> by{" "}
           <a
             href="https://github.com/vigneshwaranbalamurugan"
             className={styles.footerLink}

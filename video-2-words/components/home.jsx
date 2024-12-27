@@ -4,6 +4,7 @@ import styles from '../styles/Home.module.css'
 const Homepage = () => {
   return (
     <div className={styles.homepage}>
+      
       {/* Hero Section */}
       <section className={styles.hero}>
         <div className={styles.herocontent}>
@@ -33,10 +34,6 @@ const Homepage = () => {
         </div>
       </section>
 
-      {/* Call to Action Section */}
-      {/* <section className="cta-section">
-        <button className="upload-button">Upload Video</button>
-      </section> */}
     </div>
   );
 };
