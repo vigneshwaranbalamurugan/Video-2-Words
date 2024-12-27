@@ -42,7 +42,6 @@ const UploadArea = ({uploadedVideo,uploadProgress,handleFileUpload}) =>{
 
                 )}
                 
-
                 {uploadedVideo && uploadProgress === 100 && (
                     <div
                         className={styles.previewarea}>
@@ -57,7 +56,6 @@ const UploadArea = ({uploadedVideo,uploadProgress,handleFileUpload}) =>{
                         <button className={`${styles.actionbutton}`} onClick={handleReupload}>Re-Upload</button>
                     </center> */}
                     </div>
-
                 )}
     </section>
         </>

@@ -1,3 +1,5 @@
+import { API_Video_Upload } from "./apiUrl";
+
 const handleFileUploadRequest = async (e,setUploadProgress,setUploadedVideo,setS3url,sets3Key) => {
 
     const file = e.target.files[0];
@@ -22,7 +24,7 @@ const handleFileUploadRequest = async (e,setUploadProgress,setUploadedVideo,setS
         }, 1000); 
   
         // Send the file to the backend
-        const response = await fetch("http://localhost:5000/upload", {
+        const response = await fetch(`${API_Video_Upload}`, {
           method: "POST",
           body: formData,
         });
