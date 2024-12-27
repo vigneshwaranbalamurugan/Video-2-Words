@@ -22,7 +22,7 @@ app.use(bodyParser.json());
 // Middleware to parse URL-encoded request bodies
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Configure the AWS SDK with your credentials and region
+// Configure the AWS SDK with  credentials and region
 AWS.config.update({
   accessKeyId: process.env.AWS_ACCESS_KEY_ID, 
   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY, 
@@ -54,6 +54,15 @@ app.post("/upload", upload.single("file"), async (req, res) => {
       };
   
       const response = await s3.upload(params).promise();
+
+      fs.unlink(file.path, (err) => {
+        if (err) {
+          console.error("Error deleting the file:", err);
+          return res.status(500).json({ error: "Failed to delete local file" });
+        }
+        console.log("Local file deleted successfully.");
+      });
+      
       res.status(200).json({ message: "File uploaded successfully", s3Key: s3Key, url: response.Location });
     } catch (error) {
       console.error("Error uploading file:", error);

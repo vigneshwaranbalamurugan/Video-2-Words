@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCloudUpload, faFileAlt, faExpand, faColumns,faPlay,faFilePdf,faFileExport } from "@fortawesome/free-solid-svg-icons";import styles from '../styles/Mainworkflow.module.css';
+import { faCloudUpload, faFileAlt, faExpand, faColumns,faPlay,faFilePdf,faFileExport,faEye,faEyeSlash } from "@fortawesome/free-solid-svg-icons";import styles from '../styles/Mainworkflow.module.css';
 import handleFileUploadRequest from "../apiRequests/handleFileUploadRequests";
 import handleGetTranscriptRequest from "../apiRequests/handleGetTranscriptRequests";
 import { enterFullScreen,exitFullScreen } from "../actions/fullScreenActions";
@@ -18,7 +18,10 @@ const MainWorkflow = () => {
   const [selectedLanguage,setselectedLanguage]=useState("");
   const [s3Key,sets3Key]=useState("");
   const [s3url,setS3url]=useState("");
-  
+  const [showOriginalTranscript,setShowOriginalTranscript]=useState(true);
+  const [showTranslatedTranscript,setShowTranslatedTranscript]=useState(true);
+
+
   const handleFileUpload = async (e)=>{
      await handleFileUploadRequest(e,setUploadProgress,setUploadedVideo,setS3url,sets3Key);
   }
@@ -81,7 +84,7 @@ const MainWorkflow = () => {
               <FontAwesomeIcon icon={faCloudUpload} style={{ marginRight: "8px" }} />
               Upload Again
             </button>
-            <button className={`${styles.viewbutton} ${styles.retransbutton}`}>
+            <button className={`${styles.viewbutton} ${styles.retransbutton}`} onClick={()=>{setTranscriptionReady(false)}}>
             <FontAwesomeIcon icon={faFileAlt} style={{ marginRight: "8px" }} />
               Transcript Again
               </button> 
@@ -101,7 +104,15 @@ const MainWorkflow = () => {
         </div>
           
           <div className={`${styles.transcripts} ${viewMode}`}>
+          <div className={styles.showhidebutton }>
+              <button className={`${styles.iconsbutton} `} title="Show or Hide" onClick={()=>{setShowOriginalTranscript(!showOriginalTranscript)}}>
+              <i >             
+                 <FontAwesomeIcon icon={showOriginalTranscript?faEye:faEyeSlash} /> 
+              </i>
+            </button> 
+            </div>
           <h4>Original Transcript</h4>
+          
           <div className={styles.actionsbuttons}>
             <button className={`${styles.iconsbutton} ${styles.iconsbuttonplay}`} title="Play as Audio">
               <i >             
@@ -119,24 +130,50 @@ const MainWorkflow = () => {
               </i>
             </button>
         </div>
+        {showOriginalTranscript && (
             <textarea
-              className={`${styles.transcript} ${styles.original}`}
+              className={`${styles.transcript} ${styles.original} ${showTranslatedTranscript?'':styles.originalTranscriptFull}`}
               value={originalTranscript}
               onChange={(e) => setOriginalTranscript(e.target.value)}
             />
+        )}
+          <div className={`${styles.showhidebutton} ${styles.transcript}` }>
+          <button className={`${styles.iconsbutton} `} title="Show or Hide" onClick={()=>{setShowTranslatedTranscript(!showTranslatedTranscript)}}>
+              <i >             
+                 <FontAwesomeIcon icon={showTranslatedTranscript?faEye:faEyeSlash} /> 
+              </i>
+            </button> 
             <h4>Translated Transcript</h4>
-
-            <textarea
-              className={`${styles.transcript} ${styles.translated}`}
+            <div className={styles.actionsbuttons}>
+            <button className={`${styles.iconsbutton} ${styles.iconsbuttonplay}`} title="Play as Audio">
+              <i >             
+                 <FontAwesomeIcon icon={faPlay} /> 
+              </i>
+            </button>
+            <button className={`${styles.iconsbutton} ${styles.iconsbuttondownload}`} title="Download as PDF">
+              <i > 
+              <FontAwesomeIcon icon={faFilePdf} /> 
+            </i>
+            </button>
+            <button className={`${styles.iconsbutton} ${styles.iconsbuttonexport}`} title="Export as .SRT">
+              <i >              
+              <FontAwesomeIcon icon={faFileExport} /> 
+              </i>
+            </button>
+             </div>
+            </div>
+           
+           {showTranslatedTranscript && ( <textarea
+              className={`${styles.transcript} ${styles.translated} ${showOriginalTranscript?'':styles.originalTranscriptFull}`}
               value={translatedTranscript}
               onChange={(e) => setTranslatedTranscript(e.target.value)}
-            />
+            />)}
           </div>
           </div>
         </section>
       )}
       {/* Step 4: Actions */}
-      {transcriptionReady && (
+      {/* {transcriptionReady && (
         <section className={styles.actionsstep}>
           <h2>Step 4: Actions</h2>
           <button className={`${styles.actionbutton} ${styles.playaudio}`}>Play Transcript Audio</button>
@@ -144,10 +181,10 @@ const MainWorkflow = () => {
           <button className={`${styles.actionbutton} ${styles.exportsrt}`}>Export as Subtitle (.srt)</button>
         </section>
         
-      )}
+      )} */}
 
     </div>
   );
-};
+};false
 
 export default MainWorkflow;

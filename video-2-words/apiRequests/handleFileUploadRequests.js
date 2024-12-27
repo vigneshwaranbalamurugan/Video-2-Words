@@ -19,7 +19,7 @@ const handleFileUploadRequest = async (e,setUploadProgress,setUploadedVideo,setS
             }
             return prev + 5; 
           });
-        }, 200); 
+        }, 1000); 
   
         // Send the file to the backend
         const response = await fetch("http://localhost:5000/upload", {
