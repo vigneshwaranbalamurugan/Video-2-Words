@@ -1,6 +1,8 @@
 import React from "react";
 import Languages from "../utils/languages";
-import styles from '../styles/Mainworkflow.module.css';
+import Image from "next/image";
+import Generate from  "../assests/generate.png";
+import styles from '../styles/SelectLanguage.module.css';
 
 const SelectLanguage = ({selectedLanguage,setselectedLanguage,handleGetTranscript,uploadProgress}) =>{
     return (
@@ -20,9 +22,10 @@ const SelectLanguage = ({selectedLanguage,setselectedLanguage,handleGetTranscrip
                     setselectedLanguage(e.target.value);
                     }}
                 >
+                    
                         {Languages[0] && 
                     Object.entries(Languages[0]).map(([name, code]) => (
-                        <option key={code} value={code}>
+                        <option key={code} value={code} className={styles.option}>
                         {name}
                         </option>
                     ))}
@@ -33,6 +36,7 @@ const SelectLanguage = ({selectedLanguage,setselectedLanguage,handleGetTranscrip
                 className={`${styles.actionbutton} ${uploadProgress!==100 ?styles.buttoninactive:""} ${styles.gettranscript}`}
                 onClick={handleGetTranscript}
                 >
+                    <Image src={Generate} className={styles.generateimage}/>
                 Generate Transcript
                 </button>
             </div>

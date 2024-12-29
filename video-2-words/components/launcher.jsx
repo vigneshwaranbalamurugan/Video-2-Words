@@ -9,7 +9,7 @@ const Launcher = ({progress,setProgress}) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setProgress((prev) => (prev < 100 ? prev + 1 : prev));
-    }, 50); // Increment every 30ms
+    }, 40); 
     if (progress === 100) {
       clearInterval(interval);
     }

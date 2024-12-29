@@ -1,7 +1,7 @@
 import React from "react";
 import Image from 'next/image'
 import Upload from '../assests/upload.png';
-import styles from '../styles/Mainworkflow.module.css';
+import styles from '../styles/UploadArea.module.css';
 
 const UploadArea = ({uploadedVideo,uploadProgress,handleFileUpload}) =>{
     return(
