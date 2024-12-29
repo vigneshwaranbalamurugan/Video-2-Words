@@ -1,38 +1,79 @@
 /* Footer */
 
 .footer {
-    background-color: #03285c;
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
-    bottom: 0;
-    width: 100%;
-  
-    border-radius: 10px;
+  background-color: #03285c; 
+  color: #fff;
+  text-align: center;
+  padding: 20px 0; 
+  width: 100%;
+  border-radius: 15px; 
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(30, 144, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+  transform: rotate(45deg);
+  z-index: 0;
+  pointer-events: none; 
+}
+
+.footerContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  z-index: 1; 
+}
+
+.footerText {
+  font-size: 1.3rem; 
+  margin: 1px 0;
+  font-family: "Poppins", sans-serif; 
+  color: rgba(255, 255, 255, 0.9); 
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.heart {
+  color: #FF6347; 
+  animation: heartbeat 1.5s infinite !important; 
+  width: 25px;
+  height: auto;
+  margin-top: -20px;
+}
+
+.footerLink {
+  color: #1e90ff;
+  text-decoration: none;
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.3rem;
+  transition: all 0.3s ease; 
+  font-weight: 800;
+}
+
+.footerLink:hover {
+  text-decoration: none;
+  color: #87CEEB;
+}
+
+/* Heartbeat Animation */
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
   }
-  
-  .footerContent {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  25% {
+    transform: scale(1.2);
   }
-  
-  .footerText {
-    font-size: 1rem;
-    margin: 0;
+  50% {
+    transform: scale(1);
   }
-  
-  .heart {
-    color: red;
-  }
-  
-  .footerLink {
-    color: #1e90ff;
-    text-decoration: none;
-  }
-  
-  .footerLink:hover {
-    text-decoration: underline;
-  }
-  
+}

@@ -1,0 +1,115 @@
+.languagestep h2 {
+    color: #1E3A8A; 
+    margin-bottom: 20px;
+    font-size: 2rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+
+/* Step 2: Select Languages */
+.languagestep {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+    width: 35vw;
+    max-width: 90%;
+    gap: 1em;
+}
+
+.languageselection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1.5rem; 
+}
+
+.languageselection label {
+    font-size: 1.6rem; 
+    font-weight: bold;
+}
+
+.languagestep select {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #D1D5DB;
+    margin-left: 10px;
+    width: 15vw;
+    font-size: 1.2rem; 
+    background:#fff; 
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.languagestep select:hover {
+    border-color: #3B82F6;
+    box-shadow: 0px 4px 10px rgba(59, 130, 246, 0.2);
+}
+
+.languagestep .option{
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.buttoninactive{
+    cursor:not-allowed !important;
+}
+
+.generateimage{
+    width: 20px;
+    height: auto;
+    margin-right: 10px;
+}
+
+
+.gettranscript {
+    font-size: 1.5rem !important;
+    font-weight: bold !important;
+    --clr-font-main: hsla(0, 0%, 15%, 1); 
+    --btn-bg-1: hsla(210, 90%, 50%, 1); 
+    --btn-bg-2: hsla(225, 90%, 40%, 1); 
+    --btn-bg-color: hsla(360, 100%, 95%, 1); 
+    --radii: 0.5em;
+    cursor: pointer;
+    padding: 0.5em 1em;
+    min-width: 120px;
+    min-height: 44px;
+    font-size: var(--size, 1rem);
+    font-weight: 500;
+    transition: 0.8s;
+    background-size: 280% auto;
+    background-image: linear-gradient(
+      325deg,
+      var(--btn-bg-2) 0%,
+      var(--btn-bg-1) 55%,
+      var(--btn-bg-2) 90%
+    );
+    border: none;
+    border-radius: var(--radii);
+    color: var(--btn-bg-color);
+    box-shadow:
+      0px 0px 20px rgba(40, 110, 180, 0.5), 
+      0px 5px 5px -1px rgba(35, 90, 160, 0.25), 
+      inset 4px 4px 8px rgba(100, 160, 220, 0.5), 
+      inset -4px -4px 8px rgba(20, 70, 140, 0.35);
+
+  }
+  
+  .gettranscript:hover {
+    background-position: right top;
+  }
+  
+  .gettranscript:is(:focus, :focus-visible, :active) {
+    outline: none;
+    box-shadow:
+      0 0 0 3px var(--btn-bg-color),
+      0 0 0 6px var(--btn-bg-2); 
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .gettranscript {
+      transition: linear;
+    }
+  }
+  

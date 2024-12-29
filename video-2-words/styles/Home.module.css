@@ -1,36 +1,84 @@
-
-.hero h1,.hero h3 {
-  font-weight: bold;
-}
-
 /* Hero Section */
 .hero {
-  background-color: #1E3A8A; 
-  color: #FFFFFF;
+  background: linear-gradient(135deg, #0F172A, #1E3A8A); 
+  color: #E2E8F0; 
   text-align: center;
-  padding: 30px 10px;
-  border-radius: 10px;
+  padding: 30px 20px;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.7);
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
 }
 
+/* Hero Section Overlay Effect */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(15, 23, 42, 0) 80%);
+  transform: rotate(45deg);
+  z-index: -1;
+  animation: glowAnimation 8s infinite linear;
+}
+
+/* Title */
 .herotitle {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: "Orbitron", sans-serif; 
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #F97316, #FB923C); 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin-bottom: 20px;
+  letter-spacing: 1px; 
+  text-shadow: 0 3px 12px rgba(249, 115, 22, 0.5); 
 }
 
+/* Subtitle */
+.hero h3 {
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 25px;
+  color: #94A3B8;
+  opacity: 0.9;
+}
+
+/* CTA Button */
 .ctabutton {
-  background-color: #F97316; 
+  background: linear-gradient(90deg, #F97316, #EA580C); 
   color: #FFFFFF;
-  padding: 12px 30px;
-  font-size: 1.2rem;
+  padding: 15px 35px;
+  font-size: 1rem;
   border: none;
-  border-radius: 8px;
+  border-radius: 50px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.4s ease;
+  font-family: "Rajdhani", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 5px 15px rgba(249, 115, 22, 0.4);
 }
 
 .ctabutton:hover {
-  background-color: #F97316;
-  opacity: 0.9;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(234, 88, 12, 0.6); 
+  background: linear-gradient(90deg, #EA580C, #F97316); 
+}
+
+/* Glow Animation for Hero Section */
+@keyframes glowAnimation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Features Section */
@@ -45,21 +93,44 @@
   background-color: #FFFFFF; 
   padding: 30px;
   margin: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.8); /* Soft depth */
   text-align: center;
   flex-basis: 25%;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
 }
 
+
 .featureitem:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px); /* Slight lift on hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Subtle hover shadow */
 }
+
+.featureitem::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(200, 200, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
 
 .featureicon {
   font-size: 3rem;
   color: #2D9CDB;
   margin-bottom: 10px;
+}
+
+.featureicons{
+  width: 100px;
+  height: auto;
 }
 
 .featureitem h3 {
@@ -70,26 +141,4 @@
 .featureitem p {
   font-size: 1rem;
   color: #4B5563; 
-}
-
-/* Call to Action Section */
-.ctasection {
-  text-align: center;
-  margin: 40px;
-}
-
-.uploadbutton {
-  background-color: #2D9CDB;
-  color: #FFFFFF;
-  padding: 15px 40px;
-  font-size: 1.3rem;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.uploadbutton:hover {
-  background-color: #2D9CDB;
-  opacity: 0.9;
 }

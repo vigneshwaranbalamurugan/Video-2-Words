@@ -67,7 +67,7 @@
       transform: translateY(0);
     }
     50% {
-      transform: translateY(-20px);
+      transform: translateY(-30px);
     }
   }
   
@@ -76,7 +76,7 @@
       transform: translateX(0);
     }
     50% {
-      transform: translateX(10px);
+      transform: translateX(20px);
     }
   }
   
@@ -106,19 +106,19 @@
   
   /* Website name */
   .websiteName {
-    font-family: "Orbitron", "Exo", sans-serif !important; /* Stylish font */
-    font-size: 3rem;
+    font-family: "Orbitron", "Exo", sans-serif !important; 
+    font-size: 3.2rem;
     font-weight: bold;
-    background: linear-gradient(90deg, #3B82F6, #60A5FA);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background: linear-gradient(90deg, #3B82F6, #60A5FA) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
     text-transform: uppercase;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.7rem; /* Adjusts spacing between words */
-    letter-spacing: 2.5px; /* Futuristic spacing */
-    animation: fadeIn 2s ease-in-out, float 4s ease-in-out infinite; /* Fading and floating effect */
+    gap: 0.7rem;
+    letter-spacing: 2.5px;
+    animation: fadeIn 2s ease-in-out, float 4s ease-in-out infinite;
     text-shadow: 0px 0px 8px rgba(59, 130, 246, 0.5);
     margin-top: -10px;
   }
@@ -130,27 +130,26 @@
   }
   
   .to {
-    font-family: "Orbitron", sans-serif !important; /* Match with the overall font */
+    font-family: "Orbitron", sans-serif !important; 
     
-    font-size: 4.8rem; /* Slightly larger */
+    font-size: 4.8rem;
     font-weight: 900;
-    text-transform: none; /* Keep as is for contrast */
-    color: #ffffff;
-    text-shadow: 0px 0px 12px #60A5FA, 0px 0px 25px #3B82F6; /* Neon glow */
+    text-transform: none;
+    color: #ffffff !important;
     padding: 0 12px;
-    background: linear-gradient(90deg, #FF5722, #FF9800); /* Gradient for the "2" */
+    background: linear-gradient(90deg, #FF5722, #FF9800); 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: pulse 1.5s infinite ease-in-out;
-    transform: rotate(10deg); /* Rotate by -10 degrees */
+    transform: rotate(10deg); 
     display: inline-block; 
     
   }
   
   /* Add a hover effect for "2" to enhance the modern look */
   .to:hover {
-    text-shadow: 0px 0px 20px #FF5722, 0px 0px 30px #FF9800;
-    transition: text-shadow 0.3s ease-in-out;
+    text-shadow: 0px 0px 20px #FF5722, 0px 0px 30px #FF9800 !important;
+    transition: text-shadow 0.3s ease-in-out !important;
   }
   
   /* Fade-in animation for the whole title */
@@ -214,6 +213,9 @@
     animation-delay: 2s;
   }
   
+  .tagline span:nth-child(5){
+    animation-delay: 2.5s;
+  }
   @keyframes fadeWord {
     to {
       opacity: 1;
@@ -235,7 +237,7 @@
     background: linear-gradient(90deg, #60A5FA, #3B82F6);
     box-shadow: 0 0 10px #3B82F6, 0 0 20px #60A5FA;
     border-radius: 10px;
-    animation: loading 7s infinite ease-in-out;
+    animation: loading 6s infinite ease-in-out;
   }
   
   @keyframes loading {
@@ -251,6 +253,7 @@
     font-size: 1rem;
     color: #93C5FD;
     margin-top: 10px;
+    font-weight: bold;
   }
   
   /* Glassmorphism-inspired Skip Button */
