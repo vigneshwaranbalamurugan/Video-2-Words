@@ -1,7 +1,7 @@
 // Import the AWS SDK
 import express from 'express';
 import dotenv from "dotenv";
-import core from "cors";
+import cors from "cors";
 import bodyParser from "body-parser";
 import uploadRouter from './routes/uploadRouter.js';
 import processRouter from './routes/processRouter.js';
@@ -12,7 +12,7 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 5000;
 
-app.use(core());
+app.use(cors());
 
 // Middleware to parse JSON request bodies
 app.use(bodyParser.json());
@@ -32,7 +32,7 @@ app.use("/process",processRouter);
 //3. General Endpoint
 
 app.get("/", (req, res) => {
-  res.send("Welcome to Video2Words Server!");
+  res.send("Welcome to Video2Words Server..!");
 });
 
   
