@@ -6,81 +6,86 @@ import { allSupportedLanguages } from '../constants/supportedLanguages.js';
 const processRouter=express.Router();
 
 processRouter.post("/transcript", async (req, res) => {
-    try {
+  try {
+    console.log("Processing transcription...");
+    const { s3Key, targetLanguage } = req.body;
 
-      const { s3Key, targetLanguage } = req.body;
+    // Step 1: Start Transcription Job
+    const transcriptionJobName = `transcription-job-${uuidv4()}`;
+    const transcriptionParams = {
+      TranscriptionJobName: transcriptionJobName,
+      Media: { MediaFileUri: `s3://${bucketName}/${s3Key}` },
+      OutputBucketName: bucketName,
+      IdentifyLanguage: true,
+      LanguageOptions: allSupportedLanguages, 
+    };
 
-      // Start Transcription Job
-      const transcriptionJobName = `transcription-job-${uuidv4()}`;
+    await transcribeService.startTranscriptionJob(transcriptionParams).promise();
 
-      const transcriptionParams = {
-        TranscriptionJobName: transcriptionJobName,
-        Media: { MediaFileUri: `s3://${bucketName}/${s3Key}` },
-        OutputBucketName: bucketName, // Where the transcription result will be stored
-        IdentifyLanguage: true, // Enable automatic language identification
-        LanguageOptions: allSupportedLanguages, // Use all supported languages explicitly
-      };
-  
-      await transcribeService.startTranscriptionJob(transcriptionParams).promise();
-  
-      // Wait for Transcription Job to Complete
-      let transcriptionJob;
-      do {
-        transcriptionJob = await transcribeService
-          .getTranscriptionJob({ TranscriptionJobName: transcriptionJobName })
-          .promise();
-        await new Promise((resolve) => setTimeout(resolve, 5000)); // Wait 5 seconds before checking again
-      } while (transcriptionJob.TranscriptionJob.TranscriptionJobStatus === "IN_PROGRESS");
-  
-      if (transcriptionJob.TranscriptionJob.TranscriptionJobStatus !== "COMPLETED") {
+    // Step 2: Wait for Transcription Job Completion (Optimized Polling with Backoff)
+    let transcriptionJob;
+    let waitTime = 5000;
+    const maxRetries = 10;
+    let retries = 0;
+
+    do {
+      if (retries > maxRetries) throw new Error("Transcription job timed out");
+      transcriptionJob = await transcribeService
+        .getTranscriptionJob({ TranscriptionJobName: transcriptionJobName })
+        .promise();
+      if (transcriptionJob.TranscriptionJob.TranscriptionJobStatus === "COMPLETED") break;
+      if (transcriptionJob.TranscriptionJob.TranscriptionJobStatus === "FAILED")
         throw new Error("Transcription job failed");
-      }
-  
-      // Get the Transcript URL
-      const transcriptFileUri = transcriptionJob.TranscriptionJob.Transcript.TranscriptFileUri;
-  
-      // Fetch the Transcript from S3
-      const transcriptResponse = await fetch(transcriptFileUri);
-      const transcriptData = await transcriptResponse.json();
-      const originalTranscript = transcriptData.results.transcripts[0].transcript;
-  
-      // Get the Detected Language
-      const detectedLanguage = transcriptionJob.TranscriptionJob.LanguageCode; // Language detected by Transcribe
-      console.log(detectedLanguage);
+      await new Promise((resolve) => setTimeout(resolve, waitTime));
+      waitTime *= 2;
+      retries++;
+    } while (true);
 
-      // Translate the Transcript into Target Language
-      const translateParams = {
-        Text: originalTranscript,
-        SourceLanguageCode: detectedLanguage,
-        TargetLanguageCode: targetLanguage, // Target language specified by the user
-      };
-  
-      const translationResponse = await translateService.translateText(translateParams).promise();
-      const translatedTranscript = translationResponse.TranslatedText;
-  
-      const filesToDelete = [
-        ".write_access_check_file.temp",    
-        `${transcriptionJobName}.json`,    
-      ];
+    // Step 3: Fetch Transcript from S3
+    const transcriptFileUri = transcriptionJob.TranscriptionJob.Transcript.TranscriptFileUri;
+    const transcriptResponse = await fetch(transcriptFileUri);
+    const transcriptData = await transcriptResponse.json();
+    const originalTranscript = transcriptData.results.transcripts[0].transcript;
 
-      for (const fileKey of filesToDelete) {
-        await s3
-          .deleteObject({
-            Bucket: bucketName,
-            Key: fileKey, // File path in S3 bucket
-          })
-          .promise();
-      }
 
-      res.status(200).json({
-        message:"success",
-        originalTranscript,
-        translatedTranscript,
-      });
-    } catch (error) {
-      console.error("Error processing file:", error);
-      res.status(500).json({ error: "Failed to process file" });
+    // Step 4: Translate Transcript
+    const detectedLanguage = transcriptionJob.TranscriptionJob.LanguageCode;
+
+    const translateParams = {
+      Text: originalTranscript,
+      SourceLanguageCode: detectedLanguage,
+      TargetLanguageCode: targetLanguage,
+    };
+
+    const translationResponse = await translateService.translateText(translateParams).promise();
+    const translatedTranscript = translationResponse.TranslatedText;
+
+    const filesToDelete = [
+      ".write_access_check_file.temp",    
+      `${transcriptionJobName}.json`,    
+    ];
+
+    for (const fileKey of filesToDelete) {
+      await s3
+        .deleteObject({
+          Bucket: bucketName,
+          Key: fileKey, 
+        })
+        .promise();
     }
-  });
+    
+    // Step 5: Send Response with Both Transcripts
+    res.status(200).json({
+      message: "Successfully Transcribed and Translated...",
+      originalTranscript,
+      translatedTranscript,
+      detectedLanguage
+    });
+  } catch (error) {
+    console.error("Error processing file:", error);
+    res.status(500).json({ error: "Failed to process file" });
+  }
+});
+
 
 export default processRouter;
