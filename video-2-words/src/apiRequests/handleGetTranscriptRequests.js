@@ -1,4 +1,4 @@
-import { API_Get_Transcript } from "@apirequest/apiUrl";
+import { API_Get_Transcript } from "@apirequest/apiUrls";
 
 const handleGetTranscriptRequest = async(
   uploadProgress,

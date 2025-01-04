@@ -1,4 +1,4 @@
-import { API_Video_Upload } from "@apirequest/apiUrl";
+import { API_Video_Upload } from "@apirequest/apiUrls";
 
 const handleFileUploadRequest = async (
   e,
