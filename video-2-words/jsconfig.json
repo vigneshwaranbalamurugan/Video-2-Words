@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+      "baseUrl": "./", 
+      "paths": {
+        "@components/*": ["src/components/*"],       
+        "@styles/*": ["src/styles/*"],              
+        "@utils/*": ["src/utils/*"],                 
+        "@public/*": ["public/*"],               
+        "@icons/*":["public/assets/icons/*"],
+        "@apirequest/*":["src/apiRequests/*"],
+        "@actions/*":["src/actions/*"],
+        "@images/*":["public/assets/images/*"]
+
+      }
+    }
+  }
+  

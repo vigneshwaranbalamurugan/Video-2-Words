@@ -1,0 +1,20 @@
+services:
+  frontend:
+    build: .
+    ports:
+     - "3000:3000"
+    networks:
+     - video2words
+  backend:
+    build: ./backend
+    ports:
+     - "5000:5000"
+    networks:
+     - video2words
+    env_file:
+      - ./backend/.env  
+    volumes:
+      - ./backend:/v2wbackend 
+networks:
+  video2words:
+    driver: bridge
