@@ -18,9 +18,6 @@
 # misc
 .DS_Store
 
-#api
-
-**/apiUrl.js
 
 # debug
 npm-debug.log*
