@@ -50,8 +50,8 @@
 
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
-   cd video2words
+   git clone https://github.com/vigneshwaranbalamurugan/Video-2-Words.git
+   cd video-2-words
    ```
 ## Step 2: Configure the Backend
 
@@ -86,7 +86,7 @@
 1. Navigate to the frontend directory:
 
     ```bash
-    cd frontend
+    cd video-2-words
     ```
 
 2. Install frontend dependencies and start the development server:
@@ -139,13 +139,6 @@ docker-compose down
 ```
 ---
 
-## 🤝 Acknowledgments
-
-- [AWS Transcribe](https://aws.amazon.com/transcribe/) for transcription services.
-- [AWS Translate](https://aws.amazon.com/translate/) for text translation.
-- [AWS S3](https://aws.amazon.com/s3/) for secure file storage.
-
----
 
 ## ✨ Author
 
