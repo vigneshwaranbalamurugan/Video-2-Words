@@ -1,0 +1,110 @@
+/* Overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  /* Confirmation Box */
+  .confirmationBox {
+    background: #ffffff; 
+    padding: 20px 30px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.3s ease-out;
+  }
+  
+  /* FadeIn Animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* Title and Message */
+  .confirmationTitle {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1e3a8a; 
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .confirmationMessage {
+    font-size: 16px;
+    color: #444;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Button Styles */
+  .confirmationButtonYes,
+  .confirmationButtonNo {
+    padding: 12px 20px;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    width: 45%;
+    margin: 0 10px;
+  }
+  
+  /* Yes Button */
+  .confirmationButtonYes {
+    background: #1e3a8a;
+    color: white;
+    border: none;
+  }
+  
+  .confirmationButtonYes:hover {
+    background: #163a6e;
+    transform: scale(1.05);
+  }
+  
+  /* No Button */
+  .confirmationButtonNo {
+    background: #f44336;
+    color: white;
+    border: none;
+  }
+  
+  .confirmationButtonNo:hover {
+    background: #d32f2f;
+    transform: scale(1.05);
+  }
+  
+  /* Button Container */
+  .buttonContainer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+
+  @media only screen and (max-width: 768px) {
+    .confirmationBox{
+      width: 70%;
+      
+    }
+  }

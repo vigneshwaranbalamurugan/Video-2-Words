@@ -1,9 +1,9 @@
 import React from "react";
-import styles from "../styles/Footer.module.css"; 
+import styles from "@styles/Footer.module.css"; 
 import Image from "next/image";
-import Heart from "../assests/heart.png";
+import Heart from "@icons/heart.png";
 
-const Footer = () => {
+const FooterComponent = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.footerContent}>
@@ -23,4 +23,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default FooterComponent;

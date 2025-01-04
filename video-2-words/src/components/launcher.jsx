@@ -1,15 +1,15 @@
 import React, { useEffect } from "react";
 import Image from 'next/image'
-import Logo from "../assests/video2words.png";
-import styles from "../styles/Launcher.module.css";
+import styles from "@styles/Launcher.module.css";
+import Logo from "@images/video2words.png";
 
-const Launcher = ({progress,setProgress}) => {
+const LauncherComponent = ({progress,setProgress}) => {
 
   // Simulate progress bar
   useEffect(() => {
     const interval = setInterval(() => {
       setProgress((prev) => (prev < 100 ? prev + 1 : prev));
-    }, 40); 
+    }, 30); 
     if (progress === 100) {
       clearInterval(interval);
     }
@@ -61,7 +61,7 @@ const Launcher = ({progress,setProgress}) => {
             "Every video tells a story. Let's turn it into words."
           </p>
           <p className={styles.quote}>
-          "Upload videos and get accurate transcripts in seconds!"
+          "Upload videos and get accurate transcripts in minutes!"
          </p>
         </div>
 
@@ -74,4 +74,4 @@ const Launcher = ({progress,setProgress}) => {
   );
 };
 
-export default Launcher;
+export default LauncherComponent;

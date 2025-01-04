@@ -1,0 +1,121 @@
+/* Black transparent overlay */
+.fileoverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px); 
+  }
+  
+  /* Futuristic modal box */
+  .filemodal {
+    background: linear-gradient(135deg, #ffffff, #e6ecf5);
+    padding: 24px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    animation: fadeInUp 0.3s ease-in-out;
+    border: 2px solid #1e3a8a;
+  }
+  
+  /* Heading styles */
+  .fileheading {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 16px;
+    color: #1e3a8a; 
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Input field */
+  .fileinput {
+    width: 90%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    background: #f9f9f9;
+    color: #333;
+  }
+  
+  .fileinput:focus {
+    border-color: #1e3a8a; 
+    background: #eef2ff; 
+  }
+  
+  /* Error message */
+  .fileerror {
+    color: #ff4d4d;
+    font-size: 0.9rem;
+    margin-bottom: 16px;
+  }
+  
+  /* Button container */
+  .filebuttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+  }
+  
+  /* Buttons */
+  .filecancelButton {
+    padding: 10px 20px;
+    border: none;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #d3d3d3;
+    color: #000;
+    transition: all 0.3s ease;
+  }
+  
+  .filecancelButton:hover {
+    background: #bbb;
+  }
+  
+  .filesubmitButton {
+    padding: 10px 20px;
+    border: none;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #1e3a8a; 
+    color: #fff;
+    transition: all 0.3s ease;
+  }
+  
+  .filesubmitButton:hover {
+    background: #162d6b; 
+  }
+  
+  /* Fade in animation */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+
+
+  @media only screen and (max-width: 768px) {
+    .filemodal{
+      width: 80%;
+      
+    }
+  }

@@ -1,10 +1,15 @@
 import React from "react";
-import Languages from "../utils/languages";
+import Languages from "@utils/languages";
 import Image from "next/image";
-import Generate from  "../assests/generate.png";
-import styles from '../styles/SelectLanguage.module.css';
+import Generate from  "@icons/generate.png";
+import styles from '@styles/SelectLanguage.module.css';
 
-const SelectLanguage = ({selectedLanguage,setselectedLanguage,handleGetTranscript,uploadProgress}) =>{
+const SelectLanguageComponent = ({
+    selectedLanguage,
+    setselectedLanguage,
+    handleGetTranscript,
+    uploadProgress
+}) =>{
     return (
         <>
          <section className={styles.languagestep}>
@@ -45,4 +50,4 @@ const SelectLanguage = ({selectedLanguage,setselectedLanguage,handleGetTranscrip
     );
 };
 
-export default SelectLanguage;
+export default SelectLanguageComponent;

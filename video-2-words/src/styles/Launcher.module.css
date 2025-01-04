@@ -5,12 +5,13 @@
     justify-content: center;
     align-items: center;
     height: 97.5vh;
-    background: radial-gradient(circle at center, #1E3A8A, #0F172A); /* Futuristic radial gradient */
+    background: radial-gradient(circle at center, #1E3A8A, #0F172A); 
     color: white;
     font-family: "Poppins", sans-serif;
     text-align: center;
     overflow: hidden;
     backdrop-filter: blur(10px);
+    border-radius: 15px;
   }
   
  .launcherLogo{
@@ -125,7 +126,7 @@
   
   /* Add a subtle hover scale effect */
   .websiteName:hover {
-    transform: scale(1.05); /* Slight zoom */
+    transform: scale(1.05); 
     transition: transform 0.3s ease-in-out;
   }
   
@@ -237,7 +238,7 @@
     background: linear-gradient(90deg, #60A5FA, #3B82F6);
     box-shadow: 0 0 10px #3B82F6, 0 0 20px #60A5FA;
     border-radius: 10px;
-    animation: loading 6s infinite ease-in-out;
+    animation: loading 5s infinite ease-in-out;
   }
   
   @keyframes loading {
@@ -287,3 +288,26 @@
     }
   }
   
+
+
+@media only screen and (max-width: 768px) {
+  .launcherLogo{
+    width: 100px;
+    height:auto;
+  }
+
+  .websiteName {
+    font-size: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .to{
+    font-size: 3rem;
+   }
+
+   .launcher{
+    padding:0 1rem;
+    max-height: 100vh;
+   }
+
+}

@@ -1,9 +1,13 @@
 import React from "react";
 import Image from 'next/image'
-import Upload from '../assests/upload.png';
-import styles from '../styles/UploadArea.module.css';
+import Upload from '@icons/upload.png';
+import styles from "@styles/UploadArea.module.css";
 
-const UploadArea = ({uploadedVideo,uploadProgress,handleFileUpload}) =>{
+const UploadAreaComponent= ({
+    uploadedVideo,
+    uploadProgress,
+    handleFileUpload
+}) =>{
     return(
         <>
             <section className={styles.uploadstep}>
@@ -28,8 +32,12 @@ const UploadArea = ({uploadedVideo,uploadProgress,handleFileUpload}) =>{
                         </div>
                     </div>
                     )}
-                    Drag and drop your video here or{" "}
+                   {uploadProgress==0 && ( 
+                    <p>
+                    Drag and drop your video here or{" "}<br/>
                     <span className={styles.uploadlink}>click to upload</span>.
+                    </p>
+                )}
                 <p className={styles.uploadinfo}>Supported formats: MP4, AVI. Max size: 100MB</p>
                 <input
                     type="file"
@@ -62,4 +70,4 @@ const UploadArea = ({uploadedVideo,uploadProgress,handleFileUpload}) =>{
     );
 };
 
-export default UploadArea;
+export default UploadAreaComponent;

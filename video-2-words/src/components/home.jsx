@@ -1,11 +1,11 @@
 import React from "react";
-import styles from '../styles/Home.module.css'
+import styles from '@styles/Home.module.css'
 import Image from "next/image";
-import multiLingual from "../assests/multilingual.png";
-import pdf from "../assests/pdf.png";
-import speech from "../assests/speaker.png";
+import multiLingual from "@icons/multilingual.png";
+import pdf from "@icons/pdf.png";
+import speech from "@icons/speaker.png";
 
-const Homepage = () => {
+const HomeComponent = () => {
   return (
     <div className={styles.homepage}>
       
@@ -49,4 +49,4 @@ const Homepage = () => {
   );
 };
 
-export default Homepage;
+export default HomeComponent;

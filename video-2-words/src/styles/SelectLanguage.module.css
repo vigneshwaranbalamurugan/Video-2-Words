@@ -113,3 +113,39 @@
     }
   }
   
+
+
+  @media only screen and (max-width: 768px) {
+    .languagestep {
+        width: 90%;
+        margin-bottom: 30px;
+        gap: 1rem;
+    }
+
+    .languageselection {
+        gap: 1rem; 
+    }
+
+    .languageselection label {
+        font-size: 1.2rem; 
+    }
+
+    .languagestep select {
+        width: 100%; 
+        font-size: 1rem; 
+        padding: 10px;
+    }
+
+    .generateimage {
+        width: 15px; 
+        height: auto;
+        margin-right: 8px;
+    }
+
+    .gettranscript {
+        font-size: 1.2rem !important;
+        padding: 0.4em 0.8em;
+        min-width: 100px;
+        min-height: 40px;
+    }
+}
