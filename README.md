@@ -23,10 +23,10 @@
 
 ## How to Run the Project
 
-# Prerequisites
-# Ensure Node.js and FFmpeg are installed on your system:
-# Download Node.js (LTS version) from https://nodejs.org/
-# Download FFmpeg from https://ffmpeg.org/download.html and add it to your system's PATH.
+### Prerequisites
+ - Ensure Node.js and FFmpeg are installed on your system:
+ - Download Node.js (LTS version) from https://nodejs.org/
+ - Download FFmpeg from https://ffmpeg.org/download.html and add it to your system's PATH.
 
 ---
 
