@@ -23,6 +23,13 @@
 
 ## How to Run the Project
 
+# Prerequisites
+# Ensure Node.js and FFmpeg are installed on your system:
+# Download Node.js (LTS version) from https://nodejs.org/
+# Download FFmpeg from https://ffmpeg.org/download.html and add it to your system's PATH.
+
+---
+
 ### Step 1: Set Up AWS Services
 
 1. **Create an S3 Bucket**:
@@ -143,4 +150,4 @@ docker-compose down
 ## ✨ Author
 
 **Vigneshwaran Balamurugan**  
-Feel free to connect via [LinkedIn](https://www.linkedin.com/) or [GitHub](https://github.com/vigneshwaranbalamurugan).
+Feel free to connect via [LinkedIn](https://www.linkedin.com/in/vignesh-waran-bala/) or [GitHub](https://github.com/vigneshwaranbalamurugan).
