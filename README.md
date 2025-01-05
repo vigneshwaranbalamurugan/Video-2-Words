@@ -21,7 +21,28 @@
 
 ---
 
-## How to Run the Project
+### How to Run the Project
+
+## 🐳 Running with Docker Compose
+
+To run the project using Docker Compose, follow these steps:
+
+### Step 1: Create a Docker Network (if not already created)
+
+```bash
+docker network create video2words
+```
+### Step 2: Run Docker Compose
+```bash
+docker-compose up --build
+```
+### Step 3: Stop Docker Containers
+```bash
+docker-compose down
+```
+---
+
+## Running without Docker
 
 ### Prerequisites
  - Ensure Node.js and FFmpeg are installed on your system:
@@ -127,24 +148,6 @@ AWS_S3_BUCKET_NAME=your-bucket-name
 
 ---
 
-## 🐳 Running with Docker Compose
-
-To run the project using Docker Compose, follow these steps:
-
-### Step 1: Create a Docker Network (if not already created)
-
-```bash
-docker network create video2words
-```
-### Step 2: Run Docker Compose
-```bash
-docker-compose up --build
-```
-### Step 3: Stop Docker Containers
-```bash
-docker-compose down
-```
----
 
 
 ## ✨ Author
