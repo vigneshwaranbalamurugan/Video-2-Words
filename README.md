@@ -21,9 +21,9 @@
 
 ---
 
-### How to Run the Project
+## How to Run the Project
 
-## 🐳 Running with Docker Compose
+### 🐳 Running with Docker Compose
 
 To run the project using Docker Compose, follow these steps:
 
@@ -42,7 +42,7 @@ docker-compose down
 ```
 ---
 
-## Running without Docker
+### Running without Docker
 
 ### Prerequisites
  - Ensure Node.js and FFmpeg are installed on your system:
