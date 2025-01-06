@@ -34,7 +34,7 @@ const MainWorkflowComponent = () => {
   const [s3url,setS3url]=useState("");
   const [selectedLanguage,setselectedLanguage]=useState("");
   const [detectedLanguage,setdetectedLanguage]=useState("");
-  const [transcriptionReady, setTranscriptionReady] = useState(true);
+  const [transcriptionReady, setTranscriptionReady] = useState(false);
   const [originalTranscript, setOriginalTranscript] = useState("Original transcript will appear here...");
   const [translatedTranscript, setTranslatedTranscript] = useState("Translated transcript will appear here...");
   const [viewMode, setViewMode] = useState("side-by-side"); 
